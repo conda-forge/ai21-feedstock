@@ -1,5 +1,5 @@
 {% set name = "ai21" %}
-{% set version = "2.12.0" %}
+{% set version = "2.13.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/ai21-{{ version }}.tar.gz
-  sha256: 380a60366e9880316c7b8635d774636be3cd862dc4efb935e8b217cadb269bc6
+  sha256: 8196861eb4d71f24a42cdcced25d0c2654a087639ebb360c270dd65f2cefe252
 
 build:
   noarch: python
@@ -22,7 +22,7 @@ requirements:
   run:
     - pydantic >=1.9.0,<3.0.0
     - python >=3.8.0,<4.0.0
-    - ai21-tokenizer >=0.11.0,<1.0.0
+    - ai21-tokenizer >=0.12.0,<1.0.0
     - dataclasses-json >=0.6.3,<0.7.0
     - typing-extensions >=4.9.0,<5.0.0
     - httpx >=0.27.0,<0.28.0
