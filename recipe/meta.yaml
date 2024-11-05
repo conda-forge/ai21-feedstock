@@ -1,5 +1,5 @@
 {% set name = "ai21" %}
-{% set version = "2.15.1" %}
+{% set version = "2.15.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/ai21-{{ version }}.tar.gz
-  sha256: cc31b84bd19dde939b5a46b60436a05a2b66276ade136a08983daad243026dc4
+  sha256: e43059fac8cd7ceb924962f4ead4a8ba9a397709577d6993c4304a92000e2036
 
 build:
   noarch: python
@@ -20,6 +20,7 @@ requirements:
     - poetry-core
     - pip
   run:
+    - typing_extensions >=4.9.0,<5.0.0
     - pydantic >=1.9.0,<3.0.0
     - python >=3.8.0,<4.0.0
     - ai21-tokenizer >=0.12.0,<1.0.0
