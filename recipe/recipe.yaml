@@ -1,0 +1,57 @@
+schema_version: 1
+
+context:
+  name: ai21
+  version: 3.0.4
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/ai21-${{ version }}.tar.gz
+  sha256: f103d6585bb897b2220fb9241eb412dd034012814b594049cda776062450b9f2
+
+build:
+  number: 1
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - poetry-core
+    - pip
+  run:
+    - typing_extensions >=4.9.0,<5.0.0
+    - pydantic >=1.9.0,<3.0.0
+    - python >=${{ python_min }},<4.0.0
+    - ai21-tokenizer >=0.12.0,<1.0.0
+    - dataclasses-json >=0.6.3,<0.7.0
+    - typing-extensions >=4.9.0,<5.0.0
+    - httpx >=0.27.0,<1.0.0
+    - tenacity >=8.3.0,<9.0.0
+  run_constraints:
+    - boto3 >=1.28.82,<2.0.0
+
+tests:
+  - python:
+      imports:
+        - ai21
+      python_version: ${{ python_min }}.*
+  - requirements:
+      run:
+        - pip
+        - python ${{ python_min }}.*
+    script:
+      - pip check
+
+about:
+  summary: AI21 Python SDK
+  license: Apache-2.0
+  license_file: LICENSE
+  homepage: https://github.com/AI21Labs/ai21-python
+
+extra:
+  recipe-maintainers:
+    - jan-janssen
