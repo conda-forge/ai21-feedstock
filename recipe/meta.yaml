@@ -1,5 +1,5 @@
 {% set name = "ai21" %}
-{% set version = "3.0.4" %}
+{% set version = "3.1.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/ai21-{{ version }}.tar.gz
-  sha256: f103d6585bb897b2220fb9241eb412dd034012814b594049cda776062450b9f2
+  sha256: 70499367846dfa66644448ab4901e1e2c27442aed2b9897b71828cdc22a76743
 
 build:
   noarch: python
